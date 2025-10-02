@@ -1,0 +1,154 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar fijo */
+.sidebar {
+    width: 220px;
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+.sidebar nav ul {
+    list-style: none;
+}
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: #007bff;
+}
+
+/* Área principal */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Títulos principales */
+h1, h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    background-color: white;
+}
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Formularios */
+form {
+    background-color: white;
+    padding: 20px;
+    max-width: 600px;
+    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Botones pequeños para acciones en tabla */
+table form button {
+    font-size: 0.85em;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+/* Enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Pre visualización para JSON en historial */
+pre {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Mensajes cuando no hay datos */
+.no-data {
+    padding: 20px;
+    color: #555;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    margin-top: 15px;
+}

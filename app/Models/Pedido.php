@@ -31,6 +31,22 @@ class Pedido {
         return $stmt->execute(['id_taxi' => $id_taxi, 'id_pedido' => $id_pedido]);
     }
 
+    public function actualizarEstado($id_pedido, $id_estado) {
+        $sql = "UPDATE pedidos SET id_estado_pedido = :estado WHERE id = :id_pedido";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute(['estado' => $id_estado, 'id_pedido' => $id_pedido]);
+    }
+
+    public function obtenerTodosPedidos() {
+        $sql = "SELECT p.*, u.nombre_completo AS cliente, t.placa AS taxi
+                FROM pedidos p
+                LEFT JOIN usuarios u ON p.id_cliente = u.id
+                LEFT JOIN taxis t ON p.id_taxi = t.id
+                ORDER BY p.fecha_hora_solicitud DESC";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll();
+    }
+
     public function obtenerPedidosPorCliente($id_cliente) {
         $sql = "SELECT * FROM pedidos WHERE id_cliente = :id_cliente ORDER BY fecha_hora_solicitud DESC";
         $stmt = $this->pdo->prepare($sql);
