@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Administrador</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; }
-        .login-container { width: 300px; margin: 100px auto; padding: 20px; background: white; border-radius: 5px; box-shadow: 0 0 10px #aaa; }
-        label, input { display: block; width: 100%; margin-bottom: 10px; }
-        input[type="submit"] { background: #28a745; color: white; border: none; padding: 8px; cursor: pointer; }
-        .error { color: red; }
-    </style>
+    <link rel="stylesheet" href="css/admin.css"> 
 </head>
 <body>
     <div class="login-container">

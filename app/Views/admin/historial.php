@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>historial de rutas</title>
+    <link rel="stylesheet" href="css/admin.css"> 
+</head>
 <h2>Historial de Rutas</h2>
 <table border="1" width="100%">
     <tr>

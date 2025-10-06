@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>lista de taxis</title>
+    <link rel="stylesheet" href="css/admin.css"> 
+</head>
 <h2>Lista de Taxis</h2>
-<a href="?controller=Taxis&action=crear">Agregar Taxi</a>
+<a href="?controller=Taxis&action=crear" class="btn-crear">Agregar Taxi</a>
 <table border="1" width="100%">
     <tr>
         <th>Placa</th>

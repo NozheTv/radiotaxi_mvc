@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>historial-pedidos</title>
+    <link rel="stylesheet" href="css/admin.css"> 
+</head>
 <h2>Detalle de Historial - Pedido <?= $historial['id_pedido'] ?></h2>
 <p><strong>Detalle de ruta:</strong></p>
 <pre><?= htmlspecialchars(json_encode(json_decode($historial['detalles_ruta']), JSON_PRETTY_PRINT)) ?></pre>
