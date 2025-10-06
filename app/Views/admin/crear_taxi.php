@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>agregar nuevo taxi</title>
+    <link rel="stylesheet" href="css/admin.css"> 
+</head>
 <h2>Agregar Nuevo Taxi</h2>
 <form method="POST" action="?controller=Taxis&action=crear">
     <label>Placa</label><br>
