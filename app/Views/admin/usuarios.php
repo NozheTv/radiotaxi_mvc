@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>usuarios</title>
+    <link rel="stylesheet" href="css/admin.css"> 
+</head>
 <h2>Usuarios</h2>
-<a href="?controller=Usuarios&action=crear">Crear nuevo usuario</a>
+<a href="?controller=Usuarios&action=crear" class="btn-crear">Crear nuevo usuario</a>
 <table border="1" width="100%">
     <tr>
         <th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Acciones</th>
