@@ -12,36 +12,64 @@
 </head>
 <body>
     <h2>Crear nueva geocerca</h2>
-    <form method="POST">
-        <label>Nombre de zona:</label><br>
-        <input type="text" name="nombre" required><br><br>
+    <form id="form-geocerca" method="POST" novalidate>
+    <label for="nombre">Nombre de zona:</label><br>
+    <input type="text" id="nombre" name="nombre" required placeholder="Ejemplo: Zona Centro"><br><br>
 
-        <label>Tarifa fija (Bs):</label><br>
-        <input type="number" step="0.01" name="tarifa" required><br><br>
+    <label for="tarifa">Tarifa fija (Bs):</label><br>
+    <input type="number" id="tarifa" name="tarifa" step="0.01" min="0" required placeholder="Ejemplo: 5.00"><br><br>
 
-        <input type="hidden" id="poligono_geojson" name="poligono_geojson">
+    <input type="hidden" id="poligono_geojson" name="poligono_geojson">
 
-        <div id="map"></div><br>
-        <button type="submit">Guardar geocerca</button>
-    </form>
+    <div id="map" style="height: 500px; border: 1px solid #ccc;"></div><br>
+
+    <button type="button" id="btn-clear">🗑️ Limpiar polígono</button>
+    <button type="submit">Guardar geocerca</button>
+
+    <p id="error-msg" style="color: red; display: none; margin-top: 10px;"></p>
+</form>
 
     <script>
-        const map = L.map('map').setView([-16.65, -68.3], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    const map = L.map('map').setView([-16.65, -68.3], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-        const drawnItems = new L.FeatureGroup();
-        map.addLayer(drawnItems);
-        const drawControl = new L.Control.Draw({
-            draw: { polygon: true, marker: false, polyline: false, rectangle: false, circle: false },
-            edit: { featureGroup: drawnItems }
-        });
-        map.addControl(drawControl);
+    const drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
 
-        map.on(L.Draw.Event.CREATED, e => {
-            drawnItems.clearLayers();
-            drawnItems.addLayer(e.layer);
-            document.getElementById('poligono_geojson').value = JSON.stringify(e.layer.toGeoJSON().geometry);
+    const drawControl = new L.Control.Draw({
+        draw: { polygon: true, marker: false, polyline: false, rectangle: false, circle: false },
+        edit: { featureGroup: drawnItems }
+    });
+    map.addControl(drawControl);
+
+    // Almacena el polígono actual (para validar)
+    let poligonoGeoJSON = '';
+
+    map.on(L.Draw.Event.CREATED, e => {
+        drawnItems.clearLayers();
+        drawnItems.addLayer(e.layer);
+
+        poligonoGeoJSON = JSON.stringify(e.layer.toGeoJSON().geometry);
+        document.getElementById('poligono_geojson').value = poligonoGeoJSON;
+    });
+
+    // También actualizar el campo si el usuario edita el polígono
+    map.on('draw:edited', e => {
+        e.layers.eachLayer(layer => {
+            poligonoGeoJSON = JSON.stringify(layer.toGeoJSON().geometry);
+            document.getElementById('poligono_geojson').value = poligonoGeoJSON;
         });
-    </script>
+    });
+
+    // Validar al enviar formulario
+    const form = document.querySelector('form');
+    form.addEventListener('submit', e => {
+        if (!document.getElementById('poligono_geojson').value) {
+            e.preventDefault();
+            alert('Por favor, dibuja la geocerca en el mapa antes de guardar.');
+        }
+    });
+</script>
+
 </body>
 </html>
