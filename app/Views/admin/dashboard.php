@@ -22,6 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <li><a href="?controller=Admin&action=dashboard&section=taxis">Taxis</a></li>
                     <li><a href="?controller=Admin&action=dashboard&section=pedidos">Pedidos</a></li>
                     <li><a href="?controller=Admin&action=dashboard&section=historial">Historial</a></li>
+                    <li><a href="?controller=GeocercasTarifa&action=index">Geocercas y Tarifas</a></li>
                     <li><a href="?controller=Admin&action=logout">Cerrar sesión</a></li>
                 </ul>
             </nav>
