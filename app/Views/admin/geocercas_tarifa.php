@@ -23,6 +23,7 @@
 
 <h2>Mapa de Geocercas y Taxis</h2>
 <a href="?controller=GeocercasTarifa&action=crear" class="btn-crear">➕ Nueva geocerca</a>
+<a href="?controller=Admin&action=dashboard&section=usuarios" class="btn-crear">← Volver atrás</a>
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
